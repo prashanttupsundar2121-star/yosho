@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Link Is Ready</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================= -->
+<!-- AD NETWORK SCRIPT — paste your ad network's    -->
+<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
+<!-- ============================================= -->
+
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="card success-card">
+
+    <div id="success-state" class="hidden">
+      <div class="success-icon">✓</div>
+      <h1>Your Destination Link Is Ready!</h1>
+      <p id="dest-preview" class="subtitle"></p>
+      <a id="target-btn" class="btn btn-success link-btn" href="#">Go to Target URL</a>
+    </div>
+
+    <div id="error-state" class="hidden">
+      <h1>Link Unavailable</h1>
+      <p class="subtitle">This link is invalid, or the verification steps were not completed. Please start again from the shortened link.</p>
+    </div>
+
+    <!-- Ad unit — paste your ad network's ad unit code here -->
+    <div id="ad-final" class="ad-slot"></div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const data = params.get('data');
+
+  const successState = document.getElementById('success-state');
+  const errorState = document.getElementById('error-state');
+  const targetBtn = document.getElementById('target-btn');
+  const destPreview = document.getElementById('dest-preview');
+
+  // Verify all 4 steps were completed for this exact data payload
+  const allStepsDone =
+    data &&
+    sessionStorage.getItem('step1_done') === data &&
+    sessionStorage.getItem('step2_done') === data &&
+    sessionStorage.getItem('step3_done') === data &&
+    sessionStorage.getItem('step4_done') === data;
+
+  function decodeBase64Url(b64url) {
+    let b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    return atob(b64);
+  }
+
+  if (data && !allStepsDone) {
+    // Steps were skipped — send back to start of the flow
+    window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
+  } else if (allStepsDone) {
+    try {
+      const decodedUrl = decodeBase64Url(data);
+      // Basic sanity check that it decoded into something URL-like
+      new URL(decodedUrl);
+
+      targetBtn.href = decodedUrl;
+      destPreview.textContent = decodedUrl;
+      successState.classList.remove('hidden');
+
+      // Clear flags so this exact link can't be replayed without redoing the flow
+      sessionStorage.removeItem('step1_done');
+      sessionStorage.removeItem('step2_done');
+      sessionStorage.removeItem('step3_done');
+      sessionStorage.removeItem('step4_done');
+    } catch (e) {
+      errorState.classList.remove('hidden');
+    }
+  } else {
+    errorState.classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step 3 of 4</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================= -->
+<!-- AD NETWORK SCRIPT — paste your ad network's    -->
+<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
+<!-- ============================================= -->
+
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="card">
+
+    <div class="step-indicator">Step 3 of 4</div>
+
+    <!-- slot-top -->
+    <div id="slot-top" class="ad-slot">
+      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    </div>
+
+    <!-- Video / tutorial placeholder -->
+    <div class="video-container">
+      <video controls poster="" class="tutorial-video">
+        <source src="tutorial.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="notice-box">
+      Please stay on this page to complete verification step 3 of 4.
+    </div>
+
+    <!-- slot-below-notice -->
+    <div id="slot-below-notice" class="ad-slot">
+      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    </div>
+
+    <!-- slot-middle -->
+    <div id="slot-middle" class="ad-slot">
+      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    </div>
+
+    <!-- slot-above-button -->
+    <div id="slot-above-button" class="ad-slot">
+      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    </div>
+
+    <button id="continue-btn" class="btn btn-primary">Continue</button>
+
+    <!-- slot-below-button -->
+    <div id="slot-below-button" class="ad-slot">
+      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const data = params.get('data');
+
+  const continueBtn = document.getElementById('continue-btn');
+  const step2Done = sessionStorage.getItem('step2_done');
+
+  if (!data) {
+    continueBtn.disabled = true;
+    continueBtn.textContent = 'Missing link data';
+  } else if (step2Done !== data) {
+    // Step 2 wasn't completed for this link — send back to start
+    window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
+  } else {
+    continueBtn.addEventListener('click', function () {
+      sessionStorage.setItem('step3_done', data);
+      window.location.href = `step4.html?data=${encodeURIComponent(data)}`;
+    });
+  }
+</script>
+
+</body>
+</html>
