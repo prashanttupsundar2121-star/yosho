@@ -6,11 +6,39 @@
 <title>Step 1 of 4</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- ============================================= -->
-<!-- AD NETWORK SCRIPT — paste your ad network's    -->
-<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
-<!-- ============================================= -->
+<!-- AD NETWORK HEAD SCRIPT PLACEHOLDER -->
 
+<style>
+  .timer-box {
+    text-align: center;
+    background: #f4f4f4;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 15px 0;
+    font-weight: bold;
+    border: 1px solid #ddd;
+  }
+  .scroll-notice {
+    display: none;
+    padding: 12px;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    text-align: center;
+    border-radius: 6px;
+    margin: 15px 0;
+    font-weight: bold;
+    animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  .btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+  }
+</style>
 </head>
 <body>
 
@@ -19,9 +47,14 @@
 
     <div class="step-indicator">Step 1 of 4</div>
 
-    <!-- slot-top -->
+    <!-- AD SLOT 1: TOP -->
     <div id="slot-top" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
+      <!-- AD UNIT 1: Top Banner Code -->
+    </div>
+
+    <!-- TOP TIMER BOX (25 Seconds) -->
+    <div class="timer-box">
+      Please Wait: <span id="top-timer" style="color: #e63946; font-size: 1.2em;">25</span> Seconds
     </div>
 
     <!-- Video / tutorial placeholder -->
@@ -32,49 +65,121 @@
       </video>
     </div>
 
-    <div class="notice-box">
-      Please stay on this page to complete verification step 1 of 4.
-    </div>
-
-    <!-- slot-below-notice -->
-    <div id="slot-below-notice" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
-    </div>
-
-    <!-- slot-middle -->
+    <!-- AD SLOT 2: MIDDLE -->
     <div id="slot-middle" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
+      <!-- AD UNIT 2: Middle Banner Code -->
     </div>
 
-    <!-- slot-above-button -->
-    <div id="slot-above-button" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    <!-- SCROLL NOTICE (Visible after 25s) -->
+    <div id="scroll-notice" class="scroll-notice">
+      👇 Scroll Down To Complete Step 👇
     </div>
 
-    <button id="continue-btn" class="btn btn-primary">Continue</button>
+    <!-- BOTTOM SECTION (Requires Scroll) -->
+    <div id="bottom-section" style="margin-top: 200px;">
 
-    <!-- slot-below-button -->
-    <div id="slot-below-button" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
+      <!-- AD SLOT 3: BOTTOM TOP -->
+      <div id="slot-bottom-top" class="ad-slot">
+        <!-- AD UNIT 3: Bottom-Top Banner Code -->
+      </div>
+
+      <!-- BOTTOM TIMER BOX (5 Seconds) -->
+      <div class="timer-box">
+        <span id="bottom-timer-text">Scroll Down Here To Verify</span>
+      </div>
+
+      <!-- AD SLOT 4: BOTTOM BOTTOM -->
+      <div id="slot-bottom-bottom" class="ad-slot">
+        <!-- AD UNIT 4: Bottom-Bottom Banner Code -->
+      </div>
+
+      <button id="continue-btn" class="btn btn-primary btn-disabled" disabled>Please Wait...</button>
+
     </div>
 
   </div>
 </div>
 
 <script>
+  // Configuration
+  const DIRECT_LINK_URL = "YOUR_DIRECT_LINK_HERE"; // Adsterra/HilltopAds DirectLink
+  const NEXT_PAGE = "step2.html";
+
+  // URL Query Parameters
   const params = new URLSearchParams(window.location.search);
   const data = params.get('data');
 
   const continueBtn = document.getElementById('continue-btn');
+  const topTimerEl = document.getElementById('top-timer');
+  const scrollNoticeEl = document.getElementById('scroll-notice');
+  const bottomTimerTextEl = document.getElementById('bottom-timer-text');
+  const bottomSectionEl = document.getElementById('bottom-section');
+
+  let topTimeLeft = 25;
+  let bottomTimeLeft = 5;
+  let topTimerFinished = false;
+  let bottomTimerStarted = false;
 
   if (!data) {
     continueBtn.disabled = true;
     continueBtn.textContent = 'Missing link data';
   } else {
+    // 1. Start 25 Seconds Timer
+    const topInterval = setInterval(() => {
+      topTimeLeft--;
+      topTimerEl.textContent = topTimeLeft;
+
+      if (topTimeLeft <= 0) {
+        clearInterval(topInterval);
+        topTimerFinished = true;
+        scrollNoticeEl.style.display = 'block';
+      }
+    }, 1000);
+
+    // 2. Detect Scroll for 5 Seconds Timer
+    window.addEventListener('scroll', checkScroll);
+
+    function checkScroll() {
+      if (topTimerFinished && !bottomTimerStarted) {
+        const rect = bottomSectionEl.getBoundingClientRect();
+        // Check if bottom section is in viewpoint
+        if (rect.top <= window.innerHeight) {
+          bottomTimerStarted = true;
+          startBottomTimer();
+        }
+      }
+    }
+
+    function startBottomTimer() {
+      bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
+
+      const bottomInterval = setInterval(() => {
+        bottomTimeLeft--;
+        bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
+
+        if (bottomTimeLeft <= 0) {
+          clearInterval(bottomInterval);
+          bottomTimerTextEl.textContent = "Verification Complete!";
+          continueBtn.disabled = false;
+          continueBtn.classList.remove('btn-disabled');
+          continueBtn.textContent = 'Continue to Step 2';
+        }
+      }, 1000);
+    }
+
+    // 3. Button Click Handling (Popunder + Next Step)
     continueBtn.addEventListener('click', function () {
-      // Mark this step as completed for this exact data payload
-      sessionStorage.setItem('step1_done', data);
-      window.location.href = `step2.html?data=${encodeURIComponent(data)}`;
+      if (!continueBtn.disabled) {
+        sessionStorage.setItem('step1_done', data);
+        
+        // Open Popunder/Direct Link in new tab
+        if (DIRECT_LINK_URL && DIRECT_LINK_URL !== "YOUR_DIRECT_LINK_HERE") {
+          window.open(DIRECT_LINK_URL, '_blank');
+        }
+        
+        // Redirect current tab to step2
+        window.location.href = `${NEXT_PAGE}?data=${encodeURIComponent(data)}`;
+      }
     });
   }
 </script>
