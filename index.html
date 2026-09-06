@@ -1,91 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Link Shortener</title>
-<link rel="stylesheet" href="style.css">
-
-<!-- ============================================= -->
-<!-- AD NETWORK SCRIPT — paste your ad network's    -->
-<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
-<!-- ============================================= -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 1 - Security Verification</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <h1>Shorten. Share. Track.</h1>
-    <p>Paste any destination link below and generate a shortened gateway URL in seconds.</p>
-  </div>
-</header>
+  <div class="wrapper">
 
-<div class="page-wrap">
-  <div class="card">
-    <form id="shorten-form">
-      <label for="destination-url">Destination URL</label>
-      <input
-        type="url"
-        id="destination-url"
-        name="destination-url"
-        placeholder="https://example.com/your-long-link"
-        required
-      >
-      <button type="submit" class="btn btn-primary">Generate Short Link</button>
-    </form>
-
-    <div id="result-box" class="result-box hidden">
-      <p class="result-label">Your short link:</p>
-      <div class="result-row">
-        <input type="text" id="result-link" readonly>
-        <button id="copy-btn" class="btn btn-secondary">Copy Short Link</button>
+    <div class="sticky-bar">
+      <div id="timer-state" class="timer-box">
+        <span>⚡ Verifying Link:</span>
+        <span id="counter" class="timer-number">12</span>s
       </div>
-      <a id="open-link" class="btn btn-primary link-btn" href="#">Open Link</a>
+      <div id="ready-state" class="instruction-box">
+        ✨ Link Unlocked! Scroll down & click "Continue to Step 2"
+      </div>
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-fill"></div>
+      </div>
     </div>
 
-    <!-- Ad unit — paste your ad network's ad unit code here -->
-    <div id="ad-home" class="ad-slot"></div>
+    <div class="hero-card">
+      <h1>Step 1 of 4: Generating Link</h1>
+      <p>Please wait while we encrypt your destination download server.</p>
+    </div>
+
+    <div class="ads-grid">
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 1]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 2]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 3]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 4]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 5]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 6]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 7]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 8]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 9]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 10]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 11]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 12]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 13]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 14]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 15]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 16]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 17]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 18]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 19]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 20]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 21]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 22]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 23]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 24]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 25]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 26]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 27]</div></div>
+      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 28]</div></div>
+    </div>
+
+    <div class="cta-area">
+      <a href="step2.html" id="action-btn" class="btn-glow">Continue to Step 2 &rarr;</a>
+    </div>
+
   </div>
-</div>
 
-<script>
-  const form = document.getElementById('shorten-form');
-  const resultBox = document.getElementById('result-box');
-  const resultLink = document.getElementById('result-link');
-  const openLink = document.getElementById('open-link');
-  const copyBtn = document.getElementById('copy-btn');
+  <script>
+    const totalTime = 12;
+    let timeLeft = totalTime;
+    const counter = document.getElementById('counter');
+    const timerState = document.getElementById('timer-state');
+    const readyState = document.getElementById('ready-state');
+    const progressBar = document.getElementById('progress-bar');
+    const actionBtn = document.getElementById('action-btn');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+    const clock = setInterval(() => {
+      timeLeft--;
+      counter.innerText = timeLeft;
+      const progressPercent = ((totalTime - timeLeft) / totalTime) * 100;
+      progressBar.style.width = progressPercent + '%';
 
-    const rawUrl = document.getElementById('destination-url').value.trim();
-    if (!rawUrl) return;
-
-    // Encode destination URL as base64 (URL-safe), then URL-encode for the query string
-    const base64 = btoa(rawUrl)
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
-
-    const encoded = encodeURIComponent(base64);
-    const basePath = window.location.pathname.replace('index.html', '');
-    const shortLink = `${window.location.origin}${basePath}step1.html?data=${encoded}`;
-
-    resultLink.value = shortLink;
-    openLink.href = shortLink;
-    resultBox.classList.remove('hidden');
-  });
-
-  copyBtn.addEventListener('click', function () {
-    resultLink.select();
-    resultLink.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(resultLink.value).then(() => {
-      copyBtn.textContent = 'Copied!';
-      setTimeout(() => { copyBtn.textContent = 'Copy Short Link'; }, 1500);
-    });
-  });
-</script>
-
+      if (timeLeft <= 0) {
+        clearInterval(clock);
+        timerState.style.display = 'none';
+        readyState.style.display = 'block';
+        actionBtn.style.display = 'inline-block';
+        actionBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
