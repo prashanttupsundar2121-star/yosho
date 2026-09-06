@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Link Is Ready</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- ============================================= -->
-<!-- AD NETWORK SCRIPT — paste your ad network's    -->
-<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
-<!-- ============================================= -->
-
+<style>
+  .ad-slot {
+    min-height: 250px !important;
+    margin: 25px 0 !important;
+  }
+</style>
 </head>
 <body>
 
@@ -29,8 +29,20 @@
       <p class="subtitle">This link is invalid, or the verification steps were not completed. Please start again from the shortened link.</p>
     </div>
 
-    <!-- Ad unit — paste your ad network's ad unit code here -->
-    <div id="ad-final" class="ad-slot"></div>
+    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <div id="ads-stream" style="margin-top: 30px;">
+      <script>
+        for (let i = 1; i <= 28; i++) {
+          document.write(`
+            <div class="ad-slot">
+              <!-- APNA AD UNIT CODE YAHAN RAKHEIN -->
+              Advertisement #${i}
+            </div>
+          `);
+        }
+      </script>
+    </div>
+
   </div>
 </div>
 
@@ -43,7 +55,6 @@
   const targetBtn = document.getElementById('target-btn');
   const destPreview = document.getElementById('dest-preview');
 
-  // Verify all 4 steps were completed for this exact data payload
   const allStepsDone =
     data &&
     sessionStorage.getItem('step1_done') === data &&
@@ -58,19 +69,16 @@
   }
 
   if (data && !allStepsDone) {
-    // Steps were skipped — send back to start of the flow
     window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
   } else if (allStepsDone) {
     try {
       const decodedUrl = decodeBase64Url(data);
-      // Basic sanity check that it decoded into something URL-like
       new URL(decodedUrl);
 
       targetBtn.href = decodedUrl;
       destPreview.textContent = decodedUrl;
       successState.classList.remove('hidden');
 
-      // Clear flags so this exact link can't be replayed without redoing the flow
       sessionStorage.removeItem('step1_done');
       sessionStorage.removeItem('step2_done');
       sessionStorage.removeItem('step3_done');
