@@ -24,8 +24,7 @@ html {
 
 body {
   margin: 0;
-  min-height: 8500px !important;
-  padding-bottom: 800px !important;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text-main);
@@ -62,7 +61,6 @@ body {
   justify-content: center;
   padding: 24px;
   margin-top: -56px;
-  min-height: 8500px !important;
 }
 
 .card {
@@ -70,8 +68,11 @@ body {
   max-width: 560px;
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 32px 28px;
+  padding: 32px 28px 600px;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 260px;
 }
 
 h1 {
@@ -240,7 +241,7 @@ input[type="text"]:focus {
 
 /* Ad / widget placeholder slots */
 .ad-slot {
-  min-height: 90px;
+  min-height: 280px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +254,6 @@ input[type="text"]:focus {
   );
   border: 1px dashed var(--border);
   border-radius: 10px;
-  margin-bottom: 14px;
   color: var(--text-muted);
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -286,7 +286,8 @@ input[type="text"]:focus {
 /* Mobile tweaks */
 @media (max-width: 480px) {
   .card {
-    padding: 24px 18px;
+    padding: 24px 18px 500px;
+    gap: 220px;
   }
 
   h1 {
