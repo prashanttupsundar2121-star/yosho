@@ -1,269 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step 1 of 4</title>
-<link rel="stylesheet" href="style.css">
-
-<!-- AD NETWORK HEAD SCRIPT PLACEHOLDER -->
-
-<style>
-  /* Long Page & Ad Layout Styling */
-  body {
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  .page-wrap {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px 15px 100px 15px; /* Extra bottom padding for scrollability */
-  }
-  .card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  }
-  .ad-slot {
-    min-height: 120px;
-    background: #f1f3f5;
-    border: 2px dashed #ced4da;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 25px 0;
-    border-radius: 6px;
-    color: #6c757d;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .spacer-block {
-    height: 350px; /* Force page height for long scroll */
-    background: #fafafa;
-    border: 1px dotted #e9ecef;
-    margin: 25px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #adb5bd;
-  }
-  .timer-box {
-    text-align: center;
-    background: #e9ecef;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px 0;
-    font-weight: bold;
-    border: 2px solid #dee2e6;
-    font-size: 1.1em;
-  }
-  .scroll-notice {
-    display: none;
-    padding: 15px;
-    background: #fff3cd;
-    color: #856404;
-    border: 2px dashed #ffeeba;
-    text-align: center;
-    border-radius: 8px;
-    margin: 25px 0;
-    font-weight: bold;
-    font-size: 1.1em;
-    animation: bounce 1.5s infinite;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .btn-disabled {
-    opacity: 0.5;
-    cursor: not-allowed !important;
-  }
-  .btn-primary {
-    width: 100%;
-    padding: 16px;
-    font-size: 18px;
-    border-radius: 8px;
-    border: none;
-    background: #0d6efd;
-    color: #fff;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 1 of 4</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #0f1015;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+    }
+    .wrapper {
+      width: 100%;
+      max-width: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #3b82f6;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .timer-box {
+      width: 100%;
+      background: #181920;
+      border: 1px solid #2d2f39;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+    .timer-sec {
+      color: #ef4444;
+      font-weight: bold;
+    }
+    .video-box {
+      width: 100%;
+      height: 220px;
+      background: #181920;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2d2f39;
+      margin-bottom: 20px;
+    }
+    .scroll-indicator-text {
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin: 15px 0;
+      text-align: center;
+    }
+    .ad-card {
+      width: 100%;
+      min-height: 250px;
+      background: #181920;
+      border: 1px dashed #374151;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+    }
+    .bottom-section {
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 80px;
+      text-align: center;
+    }
+    .btn-verify {
+      width: 100%;
+      background: #1f222e;
+      color: #9ca3af;
+      border: 1px solid #374151;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      cursor: default;
+    }
+    .btn-next {
+      display: block;
+      width: 100%;
+      background: #374151;
+      color: #9ca3af;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+    .btn-next.active {
+      background: #2563eb;
+      color: #ffffff;
+      pointer-events: auto;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+  </style>
 </head>
 <body>
 
-<div class="page-wrap">
-  <div class="card">
+  <div class="wrapper">
+    <div class="step-title">STEP 1 OF 4</div>
 
-    <div class="step-indicator" style="font-weight: bold; font-size: 1.2em; color: #0d6efd;">Step 1 of 4</div>
-
-    <!-- AD SLOT 1: TOP BANNER -->
-    <div id="slot-top-1" class="ad-slot">
-      <!-- AD UNIT 1: Header Ad -->
+    <!-- Timer Box -->
+    <div class="timer-box">
+      Please Wait: <span id="time" class="timer-sec">25</span> Seconds
     </div>
 
-    <!-- 3 SECONDS DELAY + 25 SECONDS TIMER BOX -->
-    <div class="timer-box" id="main-timer-container">
-      <span id="delay-text">Loading verification system... Please wait...</span>
-      <span id="top-timer-wrapper" style="display: none;">
-        Please Wait: <span id="top-timer" style="color: #dc3545; font-size: 1.3em;">25</span> Seconds
-      </span>
+    <!-- Video Box -->
+    <div class="video-box">
+      <svg width="40" height="40" fill="#4b5563" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
     </div>
 
-    <!-- AD SLOT 2: BELOW TOP TIMER -->
-    <div id="slot-top-2" class="ad-slot">
-      <!-- AD UNIT 2: High CPM Ad Below Timer -->
+    <div class="scroll-indicator-text">Scroll Down For Links & Verification Content</div>
+
+    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <div id="ads-container" style="width: 100%;">
+      <script>
+        for (let i = 1; i <= 28; i++) {
+          document.write(`
+            <div class="ad-card">
+              <!-- APNA AD SCRIPT/BANNER CODE YAHAN DAALEIN -->
+              Advertisement #${i}
+            </div>
+          `);
+        }
+      </script>
     </div>
 
-    <!-- CONTENT / TUTORIAL BLOCK -->
-    <div class="video-container" style="margin: 25px 0;">
-      <video controls poster="" class="tutorial-video" style="width: 100%; border-radius: 8px;">
-        <source src="tutorial.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Bottom Verification and Step 2 Button -->
+    <div class="bottom-section">
+      <div class="btn-verify">Scroll Down Here To Verify</div>
+      <a href="step2.html" id="next-btn" class="btn-next">Please Wait...</a>
     </div>
-
-    <!-- AD SLOT 3: MIDDLE BANNER -->
-    <div id="slot-middle-1" class="ad-slot">
-      <!-- AD UNIT 3: Middle Content Ad -->
-    </div>
-
-    <!-- SPACER BLOCK FOR LENGTH -->
-    <div class="spacer-block">
-      <span>Scroll Down For Links & Verification Content</span>
-    </div>
-
-    <!-- AD SLOT 4: LOWER MIDDLE BANNER -->
-    <div id="slot-middle-2" class="ad-slot">
-      <!-- AD UNIT 4: Lower Middle Ad -->
-    </div>
-
-    <!-- SCROLL NOTICE (Appears after 25s timer completes) -->
-    <div id="scroll-notice" class="scroll-notice">
-      👇 Scroll Down To The Bottom To Verify & Continue 👇
-    </div>
-
-    <!-- EXTRA SPACER TO FORCE SCROLLING -->
-    <div class="spacer-block" style="height: 400px;">
-      <span>Keep Scrolling Down...</span>
-    </div>
-
-    <!-- BOTTOM SECTION -->
-    <div id="bottom-section">
-
-      <!-- AD SLOT 5: ABOVE BOTTOM TIMER -->
-      <div id="slot-bottom-1" class="ad-slot">
-        <!-- AD UNIT 5: Pre-Button Banner Ad -->
-      </div>
-
-      <!-- BOTTOM 5s TIMER -->
-      <div class="timer-box">
-        <span id="bottom-timer-text">Scroll Down Here To Verify</span>
-      </div>
-
-      <!-- AD SLOT 6: BELOW BOTTOM TIMER -->
-      <div id="slot-bottom-2" class="ad-slot">
-        <!-- AD UNIT 6: Post-Button Banner Ad -->
-      </div>
-
-      <button id="continue-btn" class="btn btn-primary btn-disabled" disabled>Please Wait...</button>
-
-    </div>
-
   </div>
-</div>
 
-<script>
-  // Configuration
-  const DIRECT_LINK_URL = "YOUR_DIRECT_LINK_HERE"; // Adsterra/HilltopAds DirectLink URL
-  const NEXT_PAGE = "step2.html";
+  <!-- Timer Script -->
+  <script>
+    let timeLeft = 25;
+    const timerElem = document.getElementById('time');
+    const nextBtn = document.getElementById('next-btn');
 
-  // URL Query Parameters
-  const params = new URLSearchParams(window.location.search);
-  const data = params.get('data');
-
-  const continueBtn = document.getElementById('continue-btn');
-  const delayTextEl = document.getElementById('delay-text');
-  const topTimerWrapperEl = document.getElementById('top-timer-wrapper');
-  const topTimerEl = document.getElementById('top-timer');
-  const scrollNoticeEl = document.getElementById('scroll-notice');
-  const bottomTimerTextEl = document.getElementById('bottom-timer-text');
-  const bottomSectionEl = document.getElementById('bottom-section');
-
-  let topTimeLeft = 25;
-  let bottomTimeLeft = 5;
-  let topTimerFinished = false;
-  let bottomTimerStarted = false;
-
-  // Initial Link Check
-  if (!data) {
-    continueBtn.disabled = true;
-    continueBtn.textContent = 'Missing link data';
-  } else {
-
-    // 1. Trigger 25s Timer AFTER 3 Seconds Delay
-    setTimeout(() => {
-      delayTextEl.style.display = 'none';
-      topTimerWrapperEl.style.display = 'inline';
-
-      const topInterval = setInterval(() => {
-        topTimeLeft--;
-        topTimerEl.textContent = topTimeLeft;
-
-        if (topTimeLeft <= 0) {
-          clearInterval(topInterval);
-          topTimerFinished = true;
-          scrollNoticeEl.style.display = 'block';
-        }
-      }, 1000);
-    }, 3000);
-
-    // 2. Scroll Detection for 5 Seconds Bottom Timer
-    window.addEventListener('scroll', checkScroll);
-
-    function checkScroll() {
-      if (topTimerFinished && !bottomTimerStarted) {
-        const rect = bottomSectionEl.getBoundingClientRect();
-        if (rect.top <= window.innerHeight) {
-          bottomTimerStarted = true;
-          startBottomTimer();
-        }
+    const countdown = setInterval(() => {
+      timeLeft--;
+      if (timeLeft > 0) {
+        timerElem.textContent = timeLeft;
+      } else {
+        clearInterval(countdown);
+        timerElem.textContent = "0";
+        nextBtn.textContent = "Continue to Step 2 →";
+        nextBtn.classList.add('active');
       }
-    }
-
-    function startBottomTimer() {
-      bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
-
-      const bottomInterval = setInterval(() => {
-        bottomTimeLeft--;
-        bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
-
-        if (bottomTimeLeft <= 0) {
-          clearInterval(bottomInterval);
-          bottomTimerTextEl.textContent = "Verification Complete!";
-          continueBtn.disabled = false;
-          continueBtn.classList.remove('btn-disabled');
-          continueBtn.textContent = 'Continue to Step 2';
-        }
-      }, 1000);
-    }
-
-    // 3. Button Click Handling (Popunder + Redirection)
-    continueBtn.addEventListener('click', function () {
-      if (!continueBtn.disabled) {
-        sessionStorage.setItem('step1_done', data);
-        
-        if (DIRECT_LINK_URL && DIRECT_LINK_URL !== "YOUR_DIRECT_LINK_HERE") {
-          window.open(DIRECT_LINK_URL, '_blank');
-        }
-        
-        window.location.href = `${NEXT_PAGE}?data=${encodeURIComponent(data)}`;
-      }
-    });
-  }
-</script>
+    }, 1000);
+  </script>
 
 </body>
 </html>
