@@ -1,93 +1,155 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Step 1 - Security Verification</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step 1 of 4</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+  body { background-color: #f8f9fa; margin: 0; padding: 0; }
+  .page-wrap { max-width: 800px; margin: 0 auto; padding: 20px 15px 100px 15px; }
+  .card { background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+  .ad-slot { min-height: 120px; background: #f1f3f5; border: 2px dashed #ced4da; display: flex; align-items: center; justify-content: center; margin: 25px 0; border-radius: 6px; color: #6c757d; font-size: 14px; font-weight: bold; }
+  .spacer-block { height: 350px; background: #fafafa; border: 1px dotted #e9ecef; margin: 25px 0; display: flex; align-items: center; justify-content: center; color: #adb5bd; }
+  .timer-box { text-align: center; background: #e9ecef; padding: 15px; border-radius: 8px; margin: 20px 0; font-weight: bold; border: 2px solid #dee2e6; font-size: 1.1em; }
+  .scroll-notice { display: none; padding: 15px; background: #fff3cd; color: #856404; border: 2px dashed #ffeeba; text-align: center; border-radius: 8px; margin: 25px 0; font-weight: bold; font-size: 1.1em; animation: bounce 1.5s infinite; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .btn-disabled { opacity: 0.5; cursor: not-allowed !important; }
+  .btn-primary { width: 100%; padding: 16px; font-size: 18px; border-radius: 8px; border: none; background: #0d6efd; color: #fff; font-weight: bold; }
+</style>
 </head>
 <body>
 
-  <div class="wrapper">
+<div class="page-wrap">
+  <div class="card">
+    <div class="step-indicator" style="font-weight: bold; font-size: 1.2em; color: #0d6efd;">Step 1 of 4</div>
 
-    <div class="sticky-bar">
-      <div id="timer-state" class="timer-box">
-        <span>⚡ Verifying Link:</span>
-        <span id="counter" class="timer-number">12</span>s
+    <div id="slot-top-1" class="ad-slot"></div>
+
+    <div class="timer-box" id="main-timer-container">
+      <span id="delay-text">Loading verification system... Please wait...</span>
+      <span id="top-timer-wrapper" style="display: none;">
+        Please Wait: <span id="top-timer" style="color: #dc3545; font-size: 1.3em;">25</span> Seconds
+      </span>
+    </div>
+
+    <div id="slot-top-2" class="ad-slot"></div>
+
+    <div class="video-container" style="margin: 25px 0;">
+      <video controls poster="" class="tutorial-video" style="width: 100%; border-radius: 8px;">
+        <source src="tutorial.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div id="slot-middle-1" class="ad-slot"></div>
+
+    <div class="spacer-block">
+      <span>Scroll Down For Links & Verification Content</span>
+    </div>
+
+    <div id="slot-middle-2" class="ad-slot"></div>
+
+    <div id="scroll-notice" class="scroll-notice">
+      👇 Scroll Down To The Bottom To Verify & Continue 👇
+    </div>
+
+    <div class="spacer-block" style="height: 400px;">
+      <span>Keep Scrolling Down...</span>
+    </div>
+
+    <div id="bottom-section">
+      <div id="slot-bottom-1" class="ad-slot"></div>
+
+      <div class="timer-box">
+        <span id="bottom-timer-text">Scroll Down Here To Verify</span>
       </div>
-      <div id="ready-state" class="instruction-box">
-        ✨ Link Unlocked! Scroll down & click "Continue to Step 2"
-      </div>
-      <div class="progress-track">
-        <div id="progress-bar" class="progress-fill"></div>
-      </div>
-    </div>
 
-    <div class="hero-card">
-      <h1>Step 1 of 4: Generating Link</h1>
-      <p>Please wait while we encrypt your destination download server.</p>
-    </div>
+      <div id="slot-bottom-2" class="ad-slot"></div>
 
-    <div class="ads-grid">
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 1]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 2]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 3]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 4]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 5]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 6]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 7]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 8]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 9]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 10]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 11]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 12]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 13]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 14]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 15]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 16]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 17]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 18]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 19]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 20]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 21]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 22]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 23]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 24]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 25]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 26]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 27]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 28]</div></div>
+      <button id="continue-btn" class="btn btn-primary btn-disabled" disabled>Please Wait...</button>
     </div>
-
-    <div class="cta-area">
-      <a href="step2.html" id="action-btn" class="btn-glow">Continue to Step 2 &rarr;</a>
-    </div>
-
   </div>
+</div>
 
-  <script>
-    const totalTime = 12;
-    let timeLeft = totalTime;
-    const counter = document.getElementById('counter');
-    const timerState = document.getElementById('timer-state');
-    const readyState = document.getElementById('ready-state');
-    const progressBar = document.getElementById('progress-bar');
-    const actionBtn = document.getElementById('action-btn');
+<script>
+  const DIRECT_LINK_URL = "YOUR_DIRECT_LINK_HERE"; // Adsterra/HilltopAds DirectLink URL
+  const NEXT_PAGE = "step2.html";
 
-    const clock = setInterval(() => {
-      timeLeft--;
-      counter.innerText = timeLeft;
-      const progressPercent = ((totalTime - timeLeft) / totalTime) * 100;
-      progressBar.style.width = progressPercent + '%';
+  const params = new URLSearchParams(window.location.search);
+  const data = params.get('data');
 
-      if (timeLeft <= 0) {
-        clearInterval(clock);
-        timerState.style.display = 'none';
-        readyState.style.display = 'block';
-        actionBtn.style.display = 'inline-block';
-        actionBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const continueBtn = document.getElementById('continue-btn');
+  const delayTextEl = document.getElementById('delay-text');
+  const topTimerWrapperEl = document.getElementById('top-timer-wrapper');
+  const topTimerEl = document.getElementById('top-timer');
+  const scrollNoticeEl = document.getElementById('scroll-notice');
+  const bottomTimerTextEl = document.getElementById('bottom-timer-text');
+  const bottomSectionEl = document.getElementById('bottom-section');
+
+  let topTimeLeft = 25;
+  let bottomTimeLeft = 5;
+  let topTimerFinished = false;
+  let bottomTimerStarted = false;
+
+  if (!data) {
+    continueBtn.disabled = true;
+    continueBtn.textContent = 'Missing link data';
+  } else {
+    setTimeout(() => {
+      delayTextEl.style.display = 'none';
+      topTimerWrapperEl.style.display = 'inline';
+
+      const topInterval = setInterval(() => {
+        topTimeLeft--;
+        topTimerEl.textContent = topTimeLeft;
+        if (topTimeLeft <= 0) {
+          clearInterval(topInterval);
+          topTimerFinished = true;
+          scrollNoticeEl.style.display = 'block';
+        }
+      }, 1000);
+    }, 3000);
+
+    window.addEventListener('scroll', checkScroll);
+
+    function checkScroll() {
+      if (topTimerFinished && !bottomTimerStarted) {
+        const rect = bottomSectionEl.getBoundingClientRect();
+        if (rect.top <= window.innerHeight) {
+          bottomTimerStarted = true;
+          startBottomTimer();
+        }
       }
-    }, 1000);
-  </script>
+    }
+
+    function startBottomTimer() {
+      bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
+      const bottomInterval = setInterval(() => {
+        bottomTimeLeft--;
+        bottomTimerTextEl.textContent = `Please Wait: ${bottomTimeLeft} Seconds...`;
+        if (bottomTimeLeft <= 0) {
+          clearInterval(bottomInterval);
+          bottomTimerTextEl.textContent = "Verification Complete!";
+          continueBtn.disabled = false;
+          continueBtn.classList.remove('btn-disabled');
+          continueBtn.textContent = 'Continue to Step 2';
+        }
+      }, 1000);
+    }
+
+    continueBtn.addEventListener('click', function () {
+      if (!continueBtn.disabled) {
+        sessionStorage.setItem('step1_done', data);
+        if (DIRECT_LINK_URL && DIRECT_LINK_URL !== "YOUR_DIRECT_LINK_HERE") {
+          window.open(DIRECT_LINK_URL, '_blank');
+        }
+        window.location.href = `${NEXT_PAGE}?data=${encodeURIComponent(data)}`;
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
