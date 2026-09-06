@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Step 2 of 4</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- ============================================= -->
-<!-- AD NETWORK SCRIPT — paste your ad network's    -->
-<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
-<!-- ============================================= -->
-
+<style>
+  .ad-slot {
+    min-height: 250px !important;
+    margin: 25px 0 !important;
+  }
+</style>
 </head>
 <body>
 
@@ -19,12 +19,6 @@
 
     <div class="step-indicator">Step 2 of 4</div>
 
-    <!-- slot-top -->
-    <div id="slot-top" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
-    </div>
-
-    <!-- Video / tutorial placeholder -->
     <div class="video-container">
       <video controls poster="" class="tutorial-video">
         <source src="tutorial.mp4" type="video/mp4">
@@ -36,27 +30,21 @@
       Please stay on this page to complete verification step 2 of 4.
     </div>
 
-    <!-- slot-below-notice -->
-    <div id="slot-below-notice" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
+    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <div id="ads-stream">
+      <script>
+        for (let i = 1; i <= 28; i++) {
+          document.write(`
+            <div class="ad-slot">
+              <!-- APNA AD UNIT CODE YAHAN RAKHEIN -->
+              Advertisement #${i}
+            </div>
+          `);
+        }
+      </script>
     </div>
 
-    <!-- slot-middle -->
-    <div id="slot-middle" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
-    </div>
-
-    <!-- slot-above-button -->
-    <div id="slot-above-button" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
-    </div>
-
-    <button id="continue-btn" class="btn btn-primary">Continue</button>
-
-    <!-- slot-below-button -->
-    <div id="slot-below-button" class="ad-slot">
-      <!-- AD UNIT: paste your ad network's ad unit code here -->
-    </div>
+    <button id="continue-btn" class="btn btn-primary" style="margin-top: 30px;">Continue to Step 3</button>
 
   </div>
 </div>
@@ -72,7 +60,6 @@
     continueBtn.disabled = true;
     continueBtn.textContent = 'Missing link data';
   } else if (step1Done !== data) {
-    // Step 1 wasn't completed for this link — send back to start
     window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
   } else {
     continueBtn.addEventListener('click', function () {
