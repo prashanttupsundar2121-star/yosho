@@ -1,94 +1,87 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final Step - Access Granted</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Link Is Ready</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================= -->
+<!-- AD NETWORK SCRIPT — paste your ad network's    -->
+<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
+<!-- ============================================= -->
+
 </head>
 <body>
 
-  <div class="wrapper">
+<div class="page-wrap">
+  <div class="card success-card">
 
-    <div class="sticky-bar">
-      <div id="timer-state" class="timer-box">
-        <span>⚡ Unlocking Destination:</span>
-        <span id="counter" class="timer-number">12</span>s
-      </div>
-      <div id="ready-state" class="instruction-box">
-        🎉 Destination Ready! Click "Get Direct Link" below.
-      </div>
-      <div class="progress-track">
-        <div id="progress-bar" class="progress-fill"></div>
-      </div>
+    <div id="success-state" class="hidden">
+      <div class="success-icon">✓</div>
+      <h1>Your Destination Link Is Ready!</h1>
+      <p id="dest-preview" class="subtitle"></p>
+      <a id="target-btn" class="btn btn-success link-btn" href="#">Go to Target URL</a>
     </div>
 
-    <div class="hero-card">
-      <h1>All Verification Passed!</h1>
-      <p>Your target download file / link is encrypted and unlocked.</p>
+    <div id="error-state" class="hidden">
+      <h1>Link Unavailable</h1>
+      <p class="subtitle">This link is invalid, or the verification steps were not completed. Please start again from the shortened link.</p>
     </div>
 
-    <div class="ads-grid">
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 1]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 2]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 3]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 4]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 5]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 6]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 7]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 8]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 9]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 10]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 11]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 12]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 13]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 14]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 15]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 16]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 17]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 18]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 19]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 20]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 21]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 22]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 23]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 24]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 25]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 26]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 27]</div></div>
-      <div class="ad-card"><span class="ad-badge">SPONSORED</span><div class="ad-placeholder">[Ad Space 28]</div></div>
-    </div>
-
-    <!-- Final Destination Link: replace the href below with your target URL -->
-    <div class="cta-area">
-      <a href="https://your-main-destination-link.com" id="action-btn" class="btn-glow">Get Direct Link &rarr;</a>
-    </div>
-
+    <!-- Ad unit — paste your ad network's ad unit code here -->
+    <div id="ad-final" class="ad-slot"></div>
   </div>
+</div>
 
-  <script>
-    const totalTime = 12;
-    let timeLeft = totalTime;
-    const counter = document.getElementById('counter');
-    const timerState = document.getElementById('timer-state');
-    const readyState = document.getElementById('ready-state');
-    const progressBar = document.getElementById('progress-bar');
-    const actionBtn = document.getElementById('action-btn');
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const data = params.get('data');
 
-    const clock = setInterval(() => {
-      timeLeft--;
-      counter.innerText = timeLeft;
-      const progressPercent = ((totalTime - timeLeft) / totalTime) * 100;
-      progressBar.style.width = progressPercent + '%';
+  const successState = document.getElementById('success-state');
+  const errorState = document.getElementById('error-state');
+  const targetBtn = document.getElementById('target-btn');
+  const destPreview = document.getElementById('dest-preview');
 
-      if (timeLeft <= 0) {
-        clearInterval(clock);
-        timerState.style.display = 'none';
-        readyState.style.display = 'block';
-        actionBtn.style.display = 'inline-block';
-        actionBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 1000);
-  </script>
+  // Verify all 4 steps were completed for this exact data payload
+  const allStepsDone =
+    data &&
+    sessionStorage.getItem('step1_done') === data &&
+    sessionStorage.getItem('step2_done') === data &&
+    sessionStorage.getItem('step3_done') === data &&
+    sessionStorage.getItem('step4_done') === data;
+
+  function decodeBase64Url(b64url) {
+    let b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    return atob(b64);
+  }
+
+  if (data && !allStepsDone) {
+    // Steps were skipped — send back to start of the flow
+    window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
+  } else if (allStepsDone) {
+    try {
+      const decodedUrl = decodeBase64Url(data);
+      // Basic sanity check that it decoded into something URL-like
+      new URL(decodedUrl);
+
+      targetBtn.href = decodedUrl;
+      destPreview.textContent = decodedUrl;
+      successState.classList.remove('hidden');
+
+      // Clear flags so this exact link can't be replayed without redoing the flow
+      sessionStorage.removeItem('step1_done');
+      sessionStorage.removeItem('step2_done');
+      sessionStorage.removeItem('step3_done');
+      sessionStorage.removeItem('step4_done');
+    } catch (e) {
+      errorState.classList.remove('hidden');
+    }
+  } else {
+    errorState.classList.remove('hidden');
+  }
+</script>
+
 </body>
 </html>
