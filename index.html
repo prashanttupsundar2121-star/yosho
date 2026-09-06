@@ -6,7 +6,10 @@
 <title>Link Shortener</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- AD NETWORK SCRIPT — paste your ad network's main <script> tag here (AdSense/Adsterra/etc.) -->
+<!-- ============================================= -->
+<!-- AD NETWORK SCRIPT — paste your ad network's    -->
+<!-- main <script> tag here (AdSense/Adsterra/etc.) -->
+<!-- ============================================= -->
 
 </head>
 <body>
@@ -22,8 +25,13 @@
   <div class="card">
     <form id="shorten-form">
       <label for="destination-url">Destination URL</label>
-      <input type="url" id="destination-url" name="destination-url"
-        placeholder="https://example.com/your-long-link" required>
+      <input
+        type="url"
+        id="destination-url"
+        name="destination-url"
+        placeholder="https://example.com/your-long-link"
+        required
+      >
       <button type="submit" class="btn btn-primary">Generate Short Link</button>
     </form>
 
@@ -36,6 +44,7 @@
       <a id="open-link" class="btn btn-primary link-btn" href="#">Open Link</a>
     </div>
 
+    <!-- Ad unit — paste your ad network's ad unit code here -->
     <div id="ad-home" class="ad-slot"></div>
   </div>
 </div>
@@ -49,10 +58,16 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
     const rawUrl = document.getElementById('destination-url').value.trim();
     if (!rawUrl) return;
 
-    const base64 = btoa(rawUrl).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    // Encode destination URL as base64 (URL-safe), then URL-encode for the query string
+    const base64 = btoa(rawUrl)
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+
     const encoded = encodeURIComponent(base64);
     const basePath = window.location.pathname.replace('index.html', '');
     const shortLink = `${window.location.origin}${basePath}step1.html?data=${encoded}`;
