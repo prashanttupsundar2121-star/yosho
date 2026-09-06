@@ -1,202 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shorten. Share. Track. - Yosho</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link Shortener</title>
+<link rel="stylesheet" href="style.css">
 
-    body {
-      background-color: #0f0d13;
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<!-- AD NETWORK SCRIPT — paste your ad network's main <script> tag here (AdSense/Adsterra/etc.) -->
 
-    /* Top Purple Gradient Section */
-    .hero-section {
-      width: 100%;
-      background: linear-gradient(180deg, #3b1372 0%, #200d3d 70%, #0f0d13 100%);
-      padding: 60px 20px 40px;
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #e9d5ff;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-subtitle {
-      font-size: 15px;
-      color: #c084fc;
-      max-width: 440px;
-      margin: 0 auto;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    /* Main Container */
-    .container {
-      width: 100%;
-      max-width: 480px;
-      padding: 0 16px;
-      margin-top: -20px;
-    }
-
-    /* Dark Input Box */
-    .card {
-      background-color: #181520;
-      border: 1px solid #2b2538;
-      border-radius: 16px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #d8b4fe;
-      margin-bottom: 8px;
-    }
-
-    .input-field {
-      width: 100%;
-      background-color: #24202e;
-      border: 1px solid #3d3550;
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-size: 15px;
-      color: #ffffff;
-      outline: none;
-      margin-bottom: 18px;
-      transition: border-color 0.2s;
-    }
-
-    .input-field:focus {
-      border-color: #8b5cf6;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background-color: #4f3299;
-      color: #f3e8ff;
-      border: none;
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-
-    .btn-submit:hover {
-      background-color: #5b3bb3;
-    }
-
-    .btn-submit:active {
-      transform: scale(0.98);
-    }
-
-    /* Result Box */
-    .result-box {
-      display: none;
-      margin-top: 20px;
-      padding: 16px;
-      background: #201b2c;
-      border: 1px solid #6b21a8;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .result-box p {
-      font-size: 13px;
-      color: #a855f7;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .result-input {
-      width: 100%;
-      background: #120f1a;
-      border: 1px solid #4c1d95;
-      color: #4ade80;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .copy-btn {
-      background: #7c3aed;
-      color: #ffffff;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Purple Hero Header -->
-  <div class="hero-section">
-    <h1 class="hero-title">Shorten. Share. Track.</h1>
-    <p class="hero-subtitle">Paste any destination link below and generate a shortened gateway URL in seconds.</p>
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Shorten. Share. Track.</h1>
+    <p>Paste any destination link below and generate a shortened gateway URL in seconds.</p>
   </div>
+</header>
 
-  <!-- Generator Card -->
-  <div class="container">
-    <div class="card">
-      <label class="label">Destination URL</label>
-      <input type="url" id="dest-url" class="input-field" placeholder="https://www.google.com" required>
-      <button onclick="generateLink()" class="btn-submit">Generate Short Link</button>
+<div class="page-wrap">
+  <div class="card">
+    <form id="shorten-form">
+      <label for="destination-url">Destination URL</label>
+      <input type="url" id="destination-url" name="destination-url"
+        placeholder="https://example.com/your-long-link" required>
+      <button type="submit" class="btn btn-primary">Generate Short Link</button>
+    </form>
 
-      <div id="result-container" class="result-box">
-        <p>Your Shortened Gateway Link:</p>
-        <input type="text" id="shortened-val" class="result-input" readonly>
-        <button onclick="copyLink()" class="copy-btn">Copy Link</button>
+    <div id="result-box" class="result-box hidden">
+      <p class="result-label">Your short link:</p>
+      <div class="result-row">
+        <input type="text" id="result-link" readonly>
+        <button id="copy-btn" class="btn btn-secondary">Copy Short Link</button>
       </div>
+      <a id="open-link" class="btn btn-primary link-btn" href="#">Open Link</a>
     </div>
+
+    <div id="ad-home" class="ad-slot"></div>
   </div>
+</div>
 
-  <script>
-    function generateLink() {
-      const url = document.getElementById('dest-url').value.trim();
-      if (!url) {
-        alert('Please enter a destination URL');
-        return;
-      }
+<script>
+  const form = document.getElementById('shorten-form');
+  const resultBox = document.getElementById('result-box');
+  const resultLink = document.getElementById('result-link');
+  const openLink = document.getElementById('open-link');
+  const copyBtn = document.getElementById('copy-btn');
 
-      // Current directory path dynamically generate karega
-      const basePath = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-      const generatedLink = basePath + 'step1.html?url=' + encodeURIComponent(url);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const rawUrl = document.getElementById('destination-url').value.trim();
+    if (!rawUrl) return;
 
-      document.getElementById('shortened-val').value = generatedLink;
-      document.getElementById('result-container').style.display = 'block';
-    }
+    const base64 = btoa(rawUrl).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const encoded = encodeURIComponent(base64);
+    const basePath = window.location.pathname.replace('index.html', '');
+    const shortLink = `${window.location.origin}${basePath}step1.html?data=${encoded}`;
 
-    function copyLink() {
-      const copyText = document.getElementById("shortened-val");
-      copyText.select();
-      navigator.clipboard.writeText(copyText.value);
-      alert("Copied to clipboard!");
-    }
-  </script>
+    resultLink.value = shortLink;
+    openLink.href = shortLink;
+    resultBox.classList.remove('hidden');
+  });
+
+  copyBtn.addEventListener('click', function () {
+    resultLink.select();
+    resultLink.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(resultLink.value).then(() => {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy Short Link'; }, 1500);
+    });
+  });
+</script>
 
 </body>
 </html>
