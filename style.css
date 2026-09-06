@@ -189,3 +189,9 @@ body {
   transform: scale(1.04);
   box-shadow: 0 0 35px rgba(16, 185, 129, 0.7);
 }
+
+body {
+    min-height: 8500px !important;
+    padding-bottom: 500px !important;
+}
+
