@@ -35,7 +35,6 @@
     color: #6c757d;
     font-size: 14px;
     font-weight: bold;
-    text-decoration: none;
   }
   .timer-box {
     text-align: center;
@@ -87,7 +86,6 @@
 
     <div class="step-indicator" style="font-weight: bold; font-size: 1.2em; color: #0d6efd; text-align: center;">Step 1 of 4</div>
 
-    <!-- 3s Delay + 25s Main Countdown -->
     <div class="timer-box" id="main-timer-container">
       <span id="delay-text">Loading verification system... Please wait...</span>
       <span id="top-timer-wrapper" style="display: none;">
@@ -95,7 +93,6 @@
       </span>
     </div>
 
-    <!-- Video Block -->
     <div class="video-container" style="margin: 25px 0;">
       <video controls poster="" class="tutorial-video" style="width: 100%; border-radius: 8px;">
         <source src="tutorial.mp4" type="video/mp4">
@@ -103,12 +100,11 @@
       </video>
     </div>
 
-    <!-- Notice after 25s -->
     <div id="scroll-notice" class="scroll-notice">
       👇 Scroll Down To The Bottom To Verify & Continue 👇
     </div>
 
-    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <!-- 28 ADS STREAM -->
     <div id="ads-stream">
       <script>
         for (let i = 1; i <= 28; i++) {
@@ -121,7 +117,6 @@
       </script>
     </div>
 
-    <!-- Bottom Verification -->
     <div id="bottom-section">
       <div class="timer-box">
         <span id="bottom-timer-text">Scroll Down Here To Verify</span>
@@ -133,7 +128,6 @@
 </div>
 
 <script>
-  // APNA ADSTERRA / DIRECT LINK YAHAN REPLACE KAREIN:
   const DIRECT_LINK_URL = "YOUR_DIRECT_LINK_HERE";
   const NEXT_PAGE = "step2.html";
 
