@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Step 2 of 4</title>
 <link rel="stylesheet" href="style.css">
-<style>
-  .ad-slot {
-    min-height: 250px !important;
-    margin: 25px 0 !important;
-  }
-</style>
 </head>
 <body>
 
@@ -30,13 +24,12 @@
       Please stay on this page to complete verification step 2 of 4.
     </div>
 
-    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
-    <div id="ads-stream">
+    <!-- 28 ADS STREAM -->
+    <div id="ads-stream" style="display: flex; flex-direction: column; gap: 25px; margin: 30px 0;">
       <script>
         for (let i = 1; i <= 28; i++) {
           document.write(`
-            <div class="ad-slot">
-              <!-- APNA AD UNIT CODE YAHAN RAKHEIN -->
+            <div class="ad-slot" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
               Advertisement #${i}
             </div>
           `);
@@ -44,7 +37,7 @@
       </script>
     </div>
 
-    <button id="continue-btn" class="btn btn-primary" style="margin-top: 30px;">Continue to Step 3</button>
+    <button id="continue-btn" class="btn btn-primary" style="margin-top: 20px;">Continue to Step 3</button>
 
   </div>
 </div>
