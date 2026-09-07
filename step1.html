@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Step 1 of 4</title>
-<link rel="stylesheet" href="style.css">
+
+<!-- PASTE HEAD / NETWORK SCRIPTS HERE (e.g., Popunder or AdSense Script) -->
+<!-- Example AdSense: 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> 
+-->
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: #0f1015;
     color: #ffffff;
@@ -15,7 +22,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   .page-wrap {
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
     padding: 20px 15px 120px 15px;
   }
@@ -63,34 +70,32 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
-  .ad-slot {
-    min-height: 250px;
-    background: #111217;
-    border: 1px dashed #374151;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 24px 0;
-    border-radius: 8px;
-    color: #9ca3af;
-    font-size: 13px;
+
+  /* AD CONTAINER STYLING */
+  .ad-wrapper {
+    margin: 25px 0;
     text-align: center;
-    padding: 10px;
-    box-sizing: border-box;
   }
-  .ad-slot span.ad-badge {
+  .ad-label {
     font-size: 11px;
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    display: block;
   }
-  .ad-slot p.ad-content {
-    margin: 0;
-    color: #cbd5e1;
-    font-weight: 500;
+  .ad-unit {
+    min-height: 250px;
+    min-width: 300px;
+    background: #111217;
+    border: 1px dashed #2d2f39;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
+
   .video-container {
     width: 100%;
     background: #000;
@@ -134,7 +139,6 @@
 
     <div class="step-indicator">Step 1 of 4</div>
 
-    <!-- 3s Delay + 25s Countdown Timer -->
     <div class="timer-box" id="main-timer-container">
       <span id="delay-text">Loading verification system... Please wait...</span>
       <span id="top-timer-wrapper" style="display: none;">
@@ -142,7 +146,6 @@
       </span>
     </div>
 
-    <!-- Video Box -->
     <div class="video-container">
       <video controls poster="" class="tutorial-video">
         <source src="tutorial.mp4" type="video/mp4">
@@ -154,35 +157,76 @@
       👇 Scroll Down To The Bottom To Verify & Continue 👇
     </div>
 
-    <!-- DIRECT 28 HTML AD BLOCKS (NO JS LOOP TO PREVENT BLOCKING) -->
-    <div class="ad-slot"><span class="ad-badge">Advertisement #1</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #2</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #3</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #4</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #5</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #6</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #7</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #8</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #9</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #10</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #11</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #12</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #13</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #14</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #15</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #16</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #17</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #18</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #19</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #20</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #21</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #22</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #23</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #24</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #25</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #26</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #27</span><p class="ad-content">Sponsored Offer Slot</p></div>
-    <div class="ad-slot"><span class="ad-badge">Advertisement #28</span><p class="ad-content">Sponsored Offer Slot</p></div>
+    <!-- ==================== REAL AD UNITS (1 - 30) ==================== -->
+    <!-- Replace the comment inside each slot with your ad network's script/tag -->
+
+    <!-- AD #1 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #1</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #1 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #2 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #2</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #2 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #3 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #3</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #3 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #4 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #4</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #4 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #5 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #5</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #5 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #6 -->
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #6</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #7</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #8</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #9</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #10</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #11</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #12</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #13</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #14</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #15</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #16</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #17</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #18</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #19</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #20</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #21</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #22</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #23</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #24</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #25</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #26</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #27</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #28</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #29</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #30</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <!-- ==================== END AD UNITS ==================== -->
 
     <!-- Bottom Scroll Verification Section -->
     <div id="bottom-section" style="margin-top: 30px;">
@@ -217,7 +261,6 @@
     continueBtn.disabled = true;
     continueBtn.textContent = 'Missing link data';
   } else {
-    // 1. Initial 3s Delay before 25s Countdown Starts
     setTimeout(() => {
       delayTextEl.style.display = 'none';
       topTimerWrapperEl.style.display = 'inline';
@@ -230,12 +273,13 @@
           clearInterval(topInterval);
           topTimerFinished = true;
           scrollNoticeEl.style.display = 'block';
+          checkScroll();
         }
       }, 1000);
     }, 3000);
 
-    // 2. Window Scroll Detection for Bottom Verification Trigger
-    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll, { passive: true });
 
     function checkScroll() {
       if (topTimerFinished && !bottomTimerStarted) {
@@ -264,7 +308,6 @@
       }, 1000);
     }
 
-    // 3. Store Step Progress and Navigate
     continueBtn.addEventListener('click', function () {
       if (!continueBtn.disabled) {
         sessionStorage.setItem('step1_done', data);
