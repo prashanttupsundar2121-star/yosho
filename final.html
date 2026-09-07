@@ -5,23 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Link Is Ready</title>
 <link rel="stylesheet" href="style.css">
+
 <style>
+  body {
+    background-color: #0f1015;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .page-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 15px 120px 15px;
+  }
+  .card {
+    background: #181920;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2d2f39;
+    text-align: center;
+  }
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #14532d;
+    color: #4ade80;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    word-break: break-all;
+    margin-bottom: 24px;
+  }
+  .btn-success {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #16a34a;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+  }
+  .btn-success:hover {
+    background: #15803d;
+  }
+  .hidden {
+    display: none !important;
+  }
   .ad-slot {
-    min-height: 250px !important;
-    margin: 25px 0 !important;
+    min-height: 250px;
+    background: #111217;
+    border: 1px dashed #374151;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 22px 0;
+    border-radius: 8px;
+    color: #9ca3af;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .ad-slot span.ad-badge {
+    font-size: 10px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .ad-slot p.ad-content {
+    margin: 0;
+    color: #cbd5e1;
+    font-weight: 500;
   }
 </style>
 </head>
 <body>
 
 <div class="page-wrap">
-  <div class="card success-card">
+  <div class="card">
 
     <div id="success-state" class="hidden">
       <div class="success-icon">✓</div>
       <h1>Your Destination Link Is Ready!</h1>
       <p id="dest-preview" class="subtitle"></p>
-      <a id="target-btn" class="btn btn-success link-btn" href="#">Go to Target URL</a>
+      <a id="target-btn" class="btn-success" href="#">Go to Target URL</a>
     </div>
 
     <div id="error-state" class="hidden">
@@ -29,14 +116,14 @@
       <p class="subtitle">This link is invalid, or the verification steps were not completed. Please start again from the shortened link.</p>
     </div>
 
-    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <!-- 28 DYNAMIC REVENUE AD SLOTS -->
     <div id="ads-stream" style="margin-top: 30px;">
       <script>
         for (let i = 1; i <= 28; i++) {
           document.write(`
-            <div class="ad-slot">
-              <!-- APNA AD UNIT CODE YAHAN RAKHEIN -->
-              Advertisement #${i}
+            <div class="ad-slot" id="ad-unit-${i}">
+              <span class="ad-badge">Sponsored Advertisement #${i}</span>
+              <p class="ad-content">Featured Sponsored Partner Offer</p>
             </div>
           `);
         }
