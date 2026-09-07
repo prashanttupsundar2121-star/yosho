@@ -5,10 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Step 4 of 4</title>
 <link rel="stylesheet" href="style.css">
+
 <style>
+  body {
+    background-color: #0f1015;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .page-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 15px 120px 15px;
+  }
+  .card {
+    background: #181920;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2d2f39;
+  }
+  .step-indicator {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #4f46e5;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  .notice-box {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #93c5fd;
+    background: #172554;
+    border: 1px solid #1e40af;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 0 0 18px;
+  }
   .ad-slot {
-    min-height: 250px !important;
-    margin: 25px 0 !important;
+    min-height: 250px;
+    background: #111217;
+    border: 1px dashed #374151;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 22px 0;
+    border-radius: 8px;
+    color: #9ca3af;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .ad-slot span.ad-badge {
+    font-size: 10px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .ad-slot p.ad-content {
+    margin: 0;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .video-container {
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 18px 0;
+    border: 1px solid #2d2f39;
+  }
+  .tutorial-video {
+    width: 100%;
+    display: block;
+  }
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    border-radius: 8px;
+    border: none;
+    background: #16a34a;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: #15803d;
   }
 </style>
 </head>
@@ -27,24 +120,24 @@
     </div>
 
     <div class="notice-box">
-      Please stay on this page to complete verification step 4 of 4.
+      Please scroll down to the bottom of the page to complete verification step 4 of 4.
     </div>
 
-    <!-- 28 ADS FOR LONG MANUAL SCROLL -->
+    <!-- 28 DYNAMIC REVENUE AD SLOTS -->
     <div id="ads-stream">
       <script>
         for (let i = 1; i <= 28; i++) {
           document.write(`
-            <div class="ad-slot">
-              <!-- APNA AD UNIT CODE YAHAN RAKHEIN -->
-              Advertisement #${i}
+            <div class="ad-slot" id="ad-unit-${i}">
+              <span class="ad-badge">Sponsored Advertisement #${i}</span>
+              <p class="ad-content">Featured Sponsored Partner Offer</p>
             </div>
           `);
         }
       </script>
     </div>
 
-    <button id="continue-btn" class="btn btn-primary" style="margin-top: 30px;">Get Final Link</button>
+    <button id="continue-btn" class="btn-primary" style="margin-top: 30px;">Get Final Link →</button>
 
   </div>
 </div>
