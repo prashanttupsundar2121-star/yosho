@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Step 2 of 4</title>
-<link rel="stylesheet" href="style.css">
+
+<!-- PASTE HEAD / NETWORK SCRIPTS HERE (e.g., Popunder, MultiTag, or AdSense Script) -->
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: #0f1015;
     color: #ffffff;
@@ -15,7 +19,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   .page-wrap {
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
     padding: 20px 15px 120px 15px;
   }
@@ -45,34 +49,6 @@
     padding: 12px 14px;
     margin: 0 0 18px;
   }
-  .ad-slot {
-    min-height: 250px;
-    background: #111217;
-    border: 1px dashed #374151;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 22px 0;
-    border-radius: 8px;
-    color: #9ca3af;
-    font-size: 13px;
-    text-align: center;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  .ad-slot span.ad-badge {
-    font-size: 10px;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-  .ad-slot p.ad-content {
-    margin: 0;
-    color: #cbd5e1;
-    font-weight: 500;
-  }
   .video-container {
     width: 100%;
     background: #000;
@@ -85,6 +61,32 @@
     width: 100%;
     display: block;
   }
+
+  /* AD CONTAINER STYLING */
+  .ad-wrapper {
+    margin: 25px 0;
+    text-align: center;
+  }
+  .ad-label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .ad-unit {
+    min-height: 250px;
+    min-width: 300px;
+    background: #111217;
+    border: 1px dashed #2d2f39;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
   .btn-primary {
     display: block;
     width: 100%;
@@ -100,8 +102,12 @@
     box-sizing: border-box;
     transition: 0.2s ease;
   }
-  .btn-primary:hover {
+  .btn-primary:hover:not(:disabled) {
     background: #4338ca;
+  }
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 </style>
 </head>
@@ -120,22 +126,78 @@
     </div>
 
     <div class="notice-box">
-      Please scroll down to the bottom of the page to continue verification step 2 of 4.
+      👇 Scroll down through the page to proceed to Step 3 👇
     </div>
 
-    <!-- 28 DYNAMIC REVENUE AD SLOTS -->
-    <div id="ads-stream">
-      <script>
-        for (let i = 1; i <= 28; i++) {
-          document.write(`
-            <div class="ad-slot" id="ad-unit-${i}">
-              <span class="ad-badge">Sponsored Advertisement #${i}</span>
-              <p class="ad-content">Featured Sponsored Partner Offer</p>
-            </div>
-          `);
-        }
-      </script>
+    <!-- ==================== 30 AD UNITS (READY FOR AD NETWORK CODE) ==================== -->
+    <!-- Paste your ad network tags (Adsterra, Monetag, AdSense, etc.) inside each .ad-unit -->
+
+    <!-- AD #1 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #1</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #1 HERE -->
+      </div>
     </div>
+
+    <!-- AD #2 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #2</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #2 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #3 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #3</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #3 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #4 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #4</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #4 HERE -->
+      </div>
+    </div>
+
+    <!-- AD #5 -->
+    <div class="ad-wrapper">
+      <span class="ad-label">Advertisement #5</span>
+      <div class="ad-unit">
+        <!-- PASTE AD TAG #5 HERE -->
+      </div>
+    </div>
+
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #6</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #7</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #8</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #9</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #10</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #11</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #12</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #13</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #14</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #15</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #16</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #17</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #18</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #19</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #20</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #21</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #22</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #23</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #24</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #25</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #26</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #27</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #28</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #29</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <div class="ad-wrapper"><span class="ad-label">Advertisement #30</span><div class="ad-unit"><!-- PASTE AD TAG HERE --></div></div>
+    <!-- ==================== END AD UNITS ==================== -->
 
     <button id="continue-btn" class="btn-primary" style="margin-top: 30px;">Continue to Step 3 →</button>
 
@@ -143,6 +205,7 @@
 </div>
 
 <script>
+  const NEXT_PAGE = "step3.html";
   const params = new URLSearchParams(window.location.search);
   const data = params.get('data');
 
@@ -153,11 +216,12 @@
     continueBtn.disabled = true;
     continueBtn.textContent = 'Missing link data';
   } else if (step1Done !== data) {
+    // Redirects back to Step 1 if the user skipped it
     window.location.href = `step1.html?data=${encodeURIComponent(data)}`;
   } else {
     continueBtn.addEventListener('click', function () {
       sessionStorage.setItem('step2_done', data);
-      window.location.href = `step3.html?data=${encodeURIComponent(data)}`;
+      window.location.href = `${NEXT_PAGE}?data=${encodeURIComponent(data)}`;
     });
   }
 </script>
