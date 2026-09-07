@@ -8,74 +8,123 @@
 
 <style>
   body {
-    background-color: #f8f9fa;
+    background-color: #0f1015;
+    color: #ffffff;
     margin: 0;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   .page-wrap {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px 15px 120px 15px;
   }
   .card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background: #181920;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2d2f39;
   }
-  .ad-slot {
-    min-height: 250px;
-    background: #f1f3f5;
-    border: 2px dashed #ced4da;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 25px 0;
-    border-radius: 6px;
-    color: #6c757d;
-    font-size: 14px;
-    font-weight: bold;
+  .step-indicator {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #4f46e5;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
   }
   .timer-box {
     text-align: center;
-    background: #e9ecef;
-    padding: 15px;
+    background: #111217;
+    padding: 14px;
     border-radius: 8px;
-    margin: 20px 0;
+    margin: 18px 0;
     font-weight: bold;
-    border: 2px solid #dee2e6;
-    font-size: 1.1em;
+    border: 1px solid #2d2f39;
+    font-size: 1.05em;
+    color: #e5e7eb;
   }
   .scroll-notice {
     display: none;
-    padding: 15px;
-    background: #fff3cd;
-    color: #856404;
-    border: 2px dashed #ffeeba;
+    padding: 14px;
+    background: #231f10;
+    color: #facc15;
+    border: 1px dashed #ca8a04;
     text-align: center;
     border-radius: 8px;
-    margin: 25px 0;
+    margin: 20px 0;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1em;
     animation: bounce 1.5s infinite;
   }
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-6px); }
+  }
+  .ad-slot {
+    min-height: 250px;
+    background: #111217;
+    border: 1px dashed #374151;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 22px 0;
+    border-radius: 8px;
+    color: #9ca3af;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .ad-slot span.ad-badge {
+    font-size: 10px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .ad-slot p.ad-content {
+    margin: 0;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .video-container {
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 18px 0;
+    border: 1px solid #2d2f39;
+  }
+  .tutorial-video {
+    width: 100%;
+    display: block;
   }
   .btn-disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed !important;
   }
   .btn-primary {
+    display: block;
     width: 100%;
     padding: 16px;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: 8px;
     border: none;
-    background: #0d6efd;
-    color: #fff;
+    background: #4f46e5;
+    color: #ffffff;
     font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+  }
+  .btn-primary:hover:not(.btn-disabled) {
+    background: #4338ca;
   }
 </style>
 </head>
@@ -84,17 +133,19 @@
 <div class="page-wrap">
   <div class="card">
 
-    <div class="step-indicator" style="font-weight: bold; font-size: 1.2em; color: #0d6efd; text-align: center;">Step 1 of 4</div>
+    <div class="step-indicator">Step 1 of 4</div>
 
+    <!-- 3s Delay + 25s Countdown Timer -->
     <div class="timer-box" id="main-timer-container">
       <span id="delay-text">Loading verification system... Please wait...</span>
       <span id="top-timer-wrapper" style="display: none;">
-        Please Wait: <span id="top-timer" style="color: #dc3545; font-size: 1.3em;">25</span> Seconds
+        Please Wait: <span id="top-timer" style="color: #ef4444; font-size: 1.25em;">25</span> Seconds
       </span>
     </div>
 
-    <div class="video-container" style="margin: 25px 0;">
-      <video controls poster="" class="tutorial-video" style="width: 100%; border-radius: 8px;">
+    <!-- Video Box -->
+    <div class="video-container">
+      <video controls poster="" class="tutorial-video">
         <source src="tutorial.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -104,33 +155,33 @@
       👇 Scroll Down To The Bottom To Verify & Continue 👇
     </div>
 
-    <!-- 28 ADS STREAM -->
+    <!-- 28 DYNAMIC REVENUE AD SLOTS -->
     <div id="ads-stream">
       <script>
         for (let i = 1; i <= 28; i++) {
           document.write(`
-            <div class="ad-slot">
-              Advertisement #${i}
+            <div class="ad-slot" id="ad-unit-${i}">
+              <span class="ad-badge">Sponsored Advertisement #${i}</span>
+              <p class="ad-content">Featured Sponsored Partner Offer</p>
             </div>
           `);
         }
       </script>
     </div>
 
-    <div id="bottom-section">
+    <!-- Bottom Scroll Verification Section -->
+    <div id="bottom-section" style="margin-top: 30px;">
       <div class="timer-box">
         <span id="bottom-timer-text">Scroll Down Here To Verify</span>
       </div>
-      <button id="continue-btn" class="btn btn-primary btn-disabled" disabled>Please Wait...</button>
+      <button id="continue-btn" class="btn-primary btn-disabled" disabled>Please Wait...</button>
     </div>
 
   </div>
 </div>
 
 <script>
-  const DIRECT_LINK_URL = "YOUR_DIRECT_LINK_HERE";
   const NEXT_PAGE = "step2.html";
-
   const params = new URLSearchParams(window.location.search);
   const data = params.get('data');
 
@@ -151,6 +202,7 @@
     continueBtn.disabled = true;
     continueBtn.textContent = 'Missing link data';
   } else {
+    // 1. Initial 3s Delay before 25s Countdown Starts
     setTimeout(() => {
       delayTextEl.style.display = 'none';
       topTimerWrapperEl.style.display = 'inline';
@@ -167,6 +219,7 @@
       }, 1000);
     }, 3000);
 
+    // 2. Window Scroll Detection for Bottom Verification Trigger
     window.addEventListener('scroll', checkScroll);
 
     function checkScroll() {
@@ -191,17 +244,15 @@
           bottomTimerTextEl.textContent = "Verification Complete!";
           continueBtn.disabled = false;
           continueBtn.classList.remove('btn-disabled');
-          continueBtn.textContent = 'Continue to Step 2';
+          continueBtn.textContent = 'Continue to Step 2 →';
         }
       }, 1000);
     }
 
+    // 3. Store Step Progress and Navigate
     continueBtn.addEventListener('click', function () {
       if (!continueBtn.disabled) {
         sessionStorage.setItem('step1_done', data);
-        if (DIRECT_LINK_URL && DIRECT_LINK_URL !== "YOUR_DIRECT_LINK_HERE") {
-          window.open(DIRECT_LINK_URL, '_blank');
-        }
         window.location.href = `${NEXT_PAGE}?data=${encodeURIComponent(data)}`;
       }
     });
